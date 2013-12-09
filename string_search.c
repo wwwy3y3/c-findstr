@@ -65,7 +65,7 @@ void *regexFind(void *context){
 int main(int argc, char const *argv[])
 {
 	
-	char str[100];
+	char str[100],filename[20];
 	int x=0,y=0,sum; //count for two threads
 	//thread
 	pthread_t inc_x_thread;
@@ -74,10 +74,15 @@ int main(int argc, char const *argv[])
 	long input_file_size; //file size
 
 	//copy filename to string
+	if(argc < 3){
+		fprintf(stderr, "too few argumemts\nUsage: ./string_search \"<str_you_look_for>\" \"<fileName>\"\n");
+		return 1;
+	}
 	strcpy(str, argv[1]);
+	strcpy(filename, argv[2]);
 
 	//put file text to a string
-	FILE *fp = fopen("oslab.txt", "r");
+	FILE *fp = fopen(filename, "r");
 	fseek(fp, 0, SEEK_END);
 	input_file_size = ftell(fp);
 	rewind(fp);
