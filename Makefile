@@ -1,5 +1,5 @@
 # find string
-all:find.c
-	gcc find.c -o find -lpthread
+all:string_search.c
+	gcc string_search.c -o string_search -lpthread
 clean:
-	rm -f find
+	rm -f string_search
