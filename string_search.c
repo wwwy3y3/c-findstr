@@ -3,6 +3,10 @@
 #include <string.h>
 #include <regex.h> 
 #include <pthread.h>
+/*
+*	author: 張仲威
+*	create two threads to find string in files
+*/
 
 struct threadData
 {
